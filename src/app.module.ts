@@ -19,6 +19,9 @@ import { CollegesModule } from './colleges/colleges.module';
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_DATABASE'),
         synchronize: configService.get<boolean>('DB_SYNC'),
+        ssl: {
+              rejectUnauthorized: false,
+            },
         entities : [__dirname + '/**/*.entity{.ts,.js}'],
       }),
       inject: [ConfigService],

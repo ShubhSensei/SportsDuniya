@@ -9,7 +9,6 @@ import * as dotenv from 'dotenv';
 
 // dotenv.config({ path: '.env.local' });
 dotenv.config({ path: '.env' });
-// dotenv.config();
 
 export const AppDataSource = new DataSource({
     type: 'postgres',
@@ -21,8 +20,8 @@ export const AppDataSource = new DataSource({
     synchronize: true,
     logging: true,
     ssl: {
-        rejectUnauthorized: false,
-      },
+      rejectUnauthorized: false,
+    },
     entities: [College, CollegePlacement, CollegeWiseCourse, City, State],
     migrations: [],
     subscribers: [],
