@@ -2,14 +2,15 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CollegesModule } from './colleges/colleges.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule.forRoot({
           isGlobal: true,
-          // envFilePath: ".env.local",
-          envFilePath: ".env",
+          // envFilePath: ".env.local",  // For Local development
+          envFilePath: ".env",  // For Production
       })],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
@@ -27,6 +28,7 @@ import { CollegesModule } from './colleges/colleges.module';
       inject: [ConfigService],
     }),
     CollegesModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

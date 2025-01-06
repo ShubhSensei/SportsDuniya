@@ -9,7 +9,7 @@ async function bootstrap() {
     .setTitle('College Management API')
     .setDescription('API for managing colleges, placements, and courses')
     .setVersion('1.0')
-    .addTag('Colleges') // Add a tag for grouping endpoints
+    .addTag('Colleges') 
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
